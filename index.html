@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trading Checklist</title>
+  <style>
+    body { font-family: Arial; background: #111; color: white; padding: 20px; }
+    h2 { color: gold; }
+    .section { margin-bottom: 20px; }
+    label { display: block; margin: 5px 0; }
+    button { padding: 10px; background: gold; border: none; cursor: pointer; }
+  </style>
+</head>
+
+<body>
+
+<h1>📊 My Trading Checklist</h1>
+
+<div class="section">
+  <h2>Market Conditions</h2>
+  <label><input type="checkbox"> Trend identified</label>
+  <label><input type="checkbox"> Higher timeframe bias</label>
+  <label><input type="checkbox"> No major news</label>
+</div>
+
+<div class="section">
+  <h2>Setup Confirmation</h2>
+  <label><input type="checkbox"> Valid S/R</label>
+  <label><input type="checkbox"> Order block present</label>
+  <label><input type="checkbox"> Break & retest</label>
+</div>
+
+<div class="section">
+  <h2>Risk Management</h2>
+  <label><input type="checkbox"> Lot size calculated</label>
+  <label><input type="checkbox"> Stop loss set</label>
+  <label><input type="checkbox"> RR 1:2+</label>
+</div>
+
+<button onclick="checkTrade()">Can I Trade?</button>
+
+<p id="result"></p>
+
+<script>
+function checkTrade() {
+  let checks = document.querySelectorAll("input[type='checkbox']");
+  let allChecked = true;
+
+  checks.forEach((box) => {
+    if (!box.checked) {
+      allChecked = false;
+    }
+  });
+
+  if (allChecked) {
+    document.getElementById("result").innerText = "✅ You can take the trade!";
+  } else {
+    document.getElementById("result").innerText = "❌ Do NOT trade yet!";
+  }
+}
+</script>
+
+</body>
+  </html>
